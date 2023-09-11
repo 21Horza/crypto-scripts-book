@@ -40,6 +40,7 @@ module.exports = {
         "react/jsx-props-no-spreading": "warn",
         "no-shadow": "off",
         "import/extentions": "off",
-        "@typescript-eslint/triple-slash-reference": "off"
+        "@typescript-eslint/triple-slash-reference": "off",
+        "@typescript-eslint/no-unused-vars": "warn"
     }
 }

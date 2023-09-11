@@ -5,12 +5,13 @@ import { Input } from '../shared/ui/Input';
 import { Button } from '../shared/ui/Button';
 import { classNames } from '../shared/lib/classNames/classNames';
 import { useTheme } from '../shared/lib/hooks/useTheme/useTheme';
+import { Navbar } from '../widgets/Navbar';
 
 function App () {
   const [ceasarMsg, setCeasar] = useState('');
   const [msg, setMsg] = useState('');
   const [shift, setShift] = useState(2);
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
   async function ceasar () {
     setCeasar(await invoke('ceasar', { msg, shift }));
@@ -18,8 +19,7 @@ function App () {
 
   return (
         <div className={classNames('app', {}, [theme])}>
-          <Button onClick={toggleTheme}>TOGGLE</Button>
-          <h1>Welcome to Crypto scripts book!</h1>
+          <Navbar />
           <form
                 className="row"
                 onSubmit={(e) => {
