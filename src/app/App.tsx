@@ -1,23 +1,27 @@
 import { useState } from 'react';
 import { invoke } from '@tauri-apps/api/tauri';
-import cls from './App.module.scss';
+import './styles/index.scss';
 import { Input } from '../shared/ui/Input';
 import { Button } from '../shared/ui/Button';
+import { classNames } from '../shared/lib/classNames/classNames';
+import { useTheme } from '../shared/lib/hooks/useTheme/useTheme';
 
 function App () {
   const [ceasarMsg, setCeasar] = useState('');
   const [msg, setMsg] = useState('');
   const [shift, setShift] = useState(2);
+  const { theme, toggleTheme } = useTheme();
 
   async function ceasar () {
     setCeasar(await invoke('ceasar', { msg, shift }));
   }
 
   return (
-        <div className={cls.container}>
+        <div className={classNames('app', {}, [theme])}>
+          <Button onClick={toggleTheme}>TOGGLE</Button>
           <h1>Welcome to Crypto scripts book!</h1>
           <form
-                className={cls.row}
+                className="row"
                 onSubmit={(e) => {
                   e.preventDefault();
                   // eslint-disable-next-line @typescript-eslint/no-floating-promises
