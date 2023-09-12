@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import cls from './Icon.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
@@ -6,7 +6,7 @@ type SvgProps = Omit<React.SVGProps<SVGSVGElement>, 'onClick'>;
 
 interface IconBaseProps extends SvgProps {
   className?: string;
-  Svg: React.FC<React.SVGProps<SVGSVGElement>>;
+  Svg: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 }
 
 interface NonClickableIconProps extends IconBaseProps {
@@ -18,7 +18,7 @@ interface ClickableBaseProps extends IconBaseProps {
   onClick: () => void;
 }
 
-type IconProps = NonClickableIconProps | ClickableBaseProps;
+export type IconProps = NonClickableIconProps | ClickableBaseProps;
 
 export const Icon = memo((props: IconProps) => {
   const {
