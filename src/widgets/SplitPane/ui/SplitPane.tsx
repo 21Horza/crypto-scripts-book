@@ -3,11 +3,13 @@ import cls from './SplitPane.module.scss';
 import SplitPaneReact, { Pane } from 'split-pane-react';
 import 'split-pane-react/esm/themes/default.css';
 import { Button } from '@/shared/ui/Button';
+import { Code } from '@/shared/ui/Code';
 
 export const SplitPane = memo(() => {
   const [sizes, setSizes] = useState([100, '30%', 'auto']);
   const [sizes2, setSizes2] = useState([100, '30%', 'auto']);
-
+  // eslint-disable-next-line no-useless-escape, max-len
+  const codeMock = 'pub async fn ceasar(msg: &str, shift: u8) -> String \{\nmsg.chars(\)\n.map(|c| {\nif c.is_ascii_alphabetic() {\nlet first = if c.is_ascii_lowercase() { b\'a\' } else { b\'A\' };'
   return (
         <div className={cls.SplitPane}>
             <SplitPaneReact
@@ -16,9 +18,7 @@ export const SplitPane = memo(() => {
                 onChange={setSizes}
                 >
                 <Pane className={cls.code} minSize={5} maxSize='90%'>
-                    <div>
-                    \\ CODE
-                    </div>
+                    <Code text={codeMock} />
                 </Pane>
                 <SplitPaneReact
                 split='horizontal'
