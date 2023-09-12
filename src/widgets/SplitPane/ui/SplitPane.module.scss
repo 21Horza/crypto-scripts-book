@@ -1,0 +1,12 @@
+.SplitPane {
+    height: calc(100vh - var(--navbar-height));
+    display: flex;
+}
+
+.result {
+    border-top: 0.5px solid #909090;
+}
+
+.code {
+    border-right: 0.5px solid #909090;
+}

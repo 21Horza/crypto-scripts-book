@@ -4,7 +4,7 @@ import {
 import cls from './Button.module.scss';
 import { type Mods, classNames } from '@/shared/lib/classNames/classNames';
 
-export type ButtonVariant = 'clear' | 'outline' | 'filled';
+export type ButtonVariant = 'encrypt' | 'decrypt' | 'normal';
 export type ButtonColor = 'normal' | 'success' | 'error';
 
 export type ButtonSize = 'm' | 'l' | 'xl';
@@ -26,7 +26,7 @@ export const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButt
   const {
     className,
     children,
-    variant = 'outline',
+    variant = 'normal',
     square,
     size = 'm',
     disabled,
