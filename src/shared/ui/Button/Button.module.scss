@@ -12,6 +12,16 @@
     }
 }
 
+.error {
+    color: #fff;
+    background: var(--red-btn-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+}
+
 .withAddon {
     padding: 0 16px;
 }
@@ -58,10 +68,6 @@
 
 .xl {
     font: var(--font-xl);
-}
-
-.disabled {
-    opacity: 0.5;
 }
 
 .fullWidth {
