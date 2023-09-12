@@ -1,0 +1,12 @@
+.items {
+    min-height: 150px;
+    max-height: 300px;
+    width: 300px;
+    overflow-y: auto;
+}
+
+.cyphers {
+    margin-left: 1rem;
+    border-radius: 50px;
+    background: var(--cyphers-btn-color);
+}

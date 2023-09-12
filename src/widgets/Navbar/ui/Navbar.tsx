@@ -7,6 +7,7 @@ import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Icon } from '@/shared/ui/Icon';
 import { Theme } from '@/shared/consts/theme';
 import { Button } from '@/shared/ui/Button';
+import { CyphersListButton } from '@/features/cyphersListButton';
 
 export const Navbar = memo(() => {
   const { theme, toggleTheme } = useTheme();
@@ -24,7 +25,7 @@ export const Navbar = memo(() => {
               }
               onClick={toggleTheme}
             />
-            <Button addonRight className={cls.cyphers}>Cyphers</Button>
+            <CyphersListButton />
       </div>
           <div className={cls.btns}>
             <Button variant='encrypt'>Encrypt</Button>

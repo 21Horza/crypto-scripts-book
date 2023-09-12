@@ -3,13 +3,16 @@
 }
 
 .menu {
+    margin-top: 20%;
+    color: var(--card-txt-color);
     overflow: hidden;
+    width: 250px;
     border-radius: 18px;
-    border: 1px solid var(--accent-redesigned);
+    border: 1px solid var(--border-card-color);
 }
 
 .active {
-    background: var(--light-bg-redesigned);
+    background: var(--active-card-item);
 }
 
 .optionsTopRight {
