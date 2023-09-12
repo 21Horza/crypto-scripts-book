@@ -5,7 +5,7 @@
 <h2>
 	<p align="center">
     	<strong>
-        	Cryptographic algorithms - one of the best practices to learn about security
+        	Crypto script book - a collection of cryptographic functions to learn about security
    		</strong>
 	</p>
 </h2>
