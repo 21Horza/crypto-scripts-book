@@ -14,7 +14,7 @@ export const Navbar = memo(() => {
   return (
         <div className={classNames(cls.Navbar, {}, [])}>
             {/* <Icon
-              // Svg={theme === Theme.DARK ? SunIcon : MoonIcon }
+              Svg={theme === Theme.DARK ? SunIcon : MoonIcon }
               clickable
               onClick={toggleTheme}
             /> */}

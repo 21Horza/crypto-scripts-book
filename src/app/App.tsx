@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { invoke } from '@tauri-apps/api/tauri';
 import './styles/index.scss';
-import { Input } from '../shared/ui/Input';
-import { Button } from '../shared/ui/Button';
-import { classNames } from '../shared/lib/classNames/classNames';
-import { useTheme } from '../shared/lib/hooks/useTheme/useTheme';
-import { Navbar } from '../widgets/Navbar';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { Button } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input';
+import { Navbar } from '@/widgets/Navbar';
 
 function App () {
   const [ceasarMsg, setCeasar] = useState('');
