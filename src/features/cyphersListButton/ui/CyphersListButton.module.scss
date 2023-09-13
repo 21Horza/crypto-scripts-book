@@ -1,9 +1,16 @@
 .items {
     min-height: 150px;
-    max-height: 300px;
+    max-height: 400px;
     width: 300px;
-    overflow-y: auto;
+    overflow: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 0;  
+        background: transparent;
+    }
 }
+
 
 .cyphers {
     margin-left: 1rem;

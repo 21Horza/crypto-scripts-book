@@ -17,7 +17,6 @@ export const CypherList = memo((props: CypherListProps) => {
 
   return (
     <VStack
-      gap="16"
       max
       className={classNames('', {}, [className])}
     >

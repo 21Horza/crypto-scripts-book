@@ -4,6 +4,7 @@
     padding: 6px 16px;
     display: flex;
     align-items: center;
+    justify-content: center;
     border: none;
     opacity: 0.8;
 
@@ -13,13 +14,7 @@
 }
 
 .error {
-    color: #fff;
     background: var(--red-btn-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
 }
 
 .withAddon {

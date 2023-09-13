@@ -75,7 +75,7 @@ export const CyphersListButton = memo((props: CyphersListButtonProps) => {
         <div className={classNames(cls.CyphersListButton, {}, [className])}>
              <Popover
              trigger={trigger}
-              className={classNames(cls.NotificationButton, {}, [])}
+              className={classNames(cls.PopoverButton, {}, [])}
               direction="bottom right"
             >
               <CypherList data={items} className={cls.items} />

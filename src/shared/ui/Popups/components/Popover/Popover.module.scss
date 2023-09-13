@@ -1,7 +1,5 @@
 .panel {
     background: var(--card-bg-color);
     position: absolute;
-    z-index: 1000;
-    border-radius: 8px;
-    padding: 15px;
+    z-index: 10;
 }

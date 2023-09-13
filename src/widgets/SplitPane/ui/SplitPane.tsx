@@ -2,7 +2,6 @@ import { memo, useState } from 'react';
 import cls from './SplitPane.module.scss';
 import SplitPaneReact, { Pane } from 'split-pane-react';
 import 'split-pane-react/esm/themes/default.css';
-import { Button } from '@/shared/ui/Button';
 import { Code } from '@/shared/ui/Code';
 
 export const SplitPane = memo(() => {
@@ -34,7 +33,6 @@ export const SplitPane = memo(() => {
                     <div>
                     \\ RESULT
                     </div>
-                    <Button color='error' fullWidth>CLEAR</Button>
                 </Pane>
                 </SplitPaneReact>
             </SplitPaneReact>

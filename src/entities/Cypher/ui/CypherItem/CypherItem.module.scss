@@ -1,3 +1,9 @@
 .CypherItem {
+    cursor: pointer;
+    width: 100%;
+    padding: 15px;
 
+    &:hover {
+        background: var(--active-card-item);
+    }
 }

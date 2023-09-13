@@ -28,8 +28,9 @@ export const Navbar = memo(() => {
             <CyphersListButton />
       </div>
           <div className={cls.btns}>
-            <Button variant='encrypt'>Encrypt</Button>
-            <Button variant='decrypt'>Decrypt</Button>
+            <Button className={cls.rightCornerBtn} variant='encrypt'>Encrypt</Button>
+            <Button className={cls.rightCornerBtn} variant='decrypt'>Decrypt</Button>
+            <Button className={cls.rightCornerBtn} color='error' variant='normal'>Clear</Button>
           </div>
         </div>
   );

@@ -8,9 +8,12 @@
     padding: 20px;
 }
 
-
-
 .btns, .icons{
     display: flex;
     align-items: center;
+    
+    .rightCornerBtn {
+        width: 100px;
+        margin: 2px;
+    }
 }
