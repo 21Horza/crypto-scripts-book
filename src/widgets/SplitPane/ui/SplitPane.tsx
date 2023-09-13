@@ -1,6 +1,6 @@
 import { memo, useState } from 'react';
 import cls from './SplitPane.module.scss';
-import SplitPaneReact, { Pane } from 'split-pane-react';
+import SplitPaneReact, { Pane, SashContent } from 'split-pane-react';
 import 'split-pane-react/esm/themes/default.css';
 import { Code } from '@/shared/ui/Code';
 
@@ -15,11 +15,17 @@ export const SplitPane = memo(() => {
                 split='vertical'
                 sizes={sizes}
                 onChange={setSizes}
+                sashRender={() => (
+                  <SashContent className={cls.actionSashWrap} />
+                )}
                 >
                 <Pane className={cls.code} minSize={5} maxSize='90%'>
                     <Code text={codeMock} />
                 </Pane>
                 <SplitPaneReact
+                sashRender={() => (
+                  <SashContent className={cls.actionSashWrap} />
+                )}
                 split='horizontal'
                 sizes={sizes2}
                 onChange={setSizes2}
