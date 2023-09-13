@@ -2,7 +2,7 @@ import { memo } from 'react';
 import cls from './Text.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-export type TextVariant = 'primary' | 'accent' | 'error';
+export type TextVariant = 'code' | 'button' | 'message' | 'result' | 'normal';
 
 export type TextAlign = 'right' | 'left' | 'center';
 
@@ -16,7 +16,6 @@ interface TextProps {
   align?: TextAlign;
   size?: TextSize;
   bold?: boolean;
-  'data-testid'?: string;
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3';
@@ -41,8 +40,7 @@ export const Text = memo((props: TextProps) => {
     bold,
     size = 'm',
     align = 'left',
-    variant = 'primary',
-    'data-testid': dataTestId = 'Text',
+    variant = 'normal',
   } = props;
 
   const HeaderTag = mapSizeToHeaderTag[size];
@@ -54,7 +52,6 @@ export const Text = memo((props: TextProps) => {
       <div className={classNames(cls.Text, { [cls.bold]: bold }, additionalClasses)}>
           {title && (
           <HeaderTag
-          data-testid={`${dataTestId}.Header`}
           className={cls.title}
         >
               {title}
@@ -63,7 +60,6 @@ export const Text = memo((props: TextProps) => {
           {text &&
              (
              <p
-               data-testid={`${dataTestId}.Paragraph`}
                className={cls.text}
              >
                  {text}

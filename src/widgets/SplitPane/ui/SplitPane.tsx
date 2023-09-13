@@ -3,12 +3,15 @@ import cls from './SplitPane.module.scss';
 import SplitPaneReact, { Pane, SashContent } from 'split-pane-react';
 import 'split-pane-react/esm/themes/default.css';
 import { Code } from '@/shared/ui/Code';
+import { Textarea } from '@/shared/ui/Textarea';
 
 export const SplitPane = memo(() => {
   const [sizes, setSizes] = useState([100, '30%', 'auto']);
   const [sizes2, setSizes2] = useState([100, '30%', 'auto']);
   // eslint-disable-next-line no-useless-escape, max-len
   const codeMock = 'pub async fn ceasar(msg: &str, shift: u8) -> String \{\nmsg.chars(\)\n.map(|c| {\nif c.is_ascii_alphabetic() {\nlet first = if c.is_ascii_lowercase() { b\'a\' } else { b\'A\' };'
+
+  const [text,] = useState('');
   return (
         <div className={cls.SplitPane}>
             <SplitPaneReact
@@ -30,15 +33,11 @@ export const SplitPane = memo(() => {
                 sizes={sizes2}
                 onChange={setSizes2}
                 >
-                <Pane className={cls.msg} minSize={100} maxSize='80%'>
-                    <div>
-                    \\ MESSAGE
-                    </div>
+                <Pane minSize={100} maxSize='80%'>
+                    <Textarea placeholder={'// Message'} text={text} />
                 </Pane>
                 <Pane className={cls.result} minSize={10}>
-                    <div>
-                    \\ RESULT
-                    </div>
+                    <Textarea placeholder={'// Result'} readonly text='' />
                 </Pane>
                 </SplitPaneReact>
             </SplitPaneReact>
