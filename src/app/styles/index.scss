@@ -13,3 +13,21 @@
 .content-page {
     display: flex;
 }
+
+
+.app *::-webkit-scrollbar-track
+ {
+    background: transparent;
+ }
+ 
+.app *::-webkit-scrollbar
+{
+    cursor: pointer;
+     width: 10px;
+    background: transparent;
+}
+ 
+.app *::-webkit-scrollbar-thumb
+ {
+     background: #282828;
+ }

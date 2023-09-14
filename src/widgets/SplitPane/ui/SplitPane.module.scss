@@ -7,8 +7,13 @@
     border-top: 1px solid #909090;
 }
 
-.code {
+.codePane {
     border-right: 1px solid #909090;
+}
+
+.code {
+	height: 100%;
+	pointer-events: none;
 }
 
 .actionSashWrap {

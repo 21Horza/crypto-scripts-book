@@ -8,11 +8,9 @@ import { Textarea } from '@/shared/ui/Textarea';
 import { invoke } from '@tauri-apps/api/tauri';
 
 export const SplitPane = memo(() => {
-  const [sizes, setSizes] = useState([100, '30%', 'auto']);
-  const [sizes2, setSizes2] = useState([100, '30%', 'auto']);
+  const [sizes, setSizes] = useState([100, '8%', 'auto']);
+  const [sizes2, setSizes2] = useState([100, '10%', 'auto']);
   const [caesarCode, setCaesarCode] = useState('');
-
-  console.log(caesarCode)
 
   async function printCeasar () {
     setCaesarCode(await invoke('print_caesar'));
@@ -28,11 +26,11 @@ export const SplitPane = memo(() => {
                   <SashContent className={cls.actionSashWrap} />
                 )}
                 >
-                <Pane className={cls.code} minSize={5} maxSize='90%'>
+                <Pane className={cls.codePane} minSize={5} maxSize='90%'>
                   <button onClick={printCeasar}>
                     PRINT
                   </button>
-                    <Code text={caesarCode} />
+                    <Code className={cls.code} text={caesarCode} />
                 </Pane>
                 <SplitPaneReact
                 sashRender={() => (
