@@ -4,11 +4,13 @@
 use cyphers::caesar::*;
 
 pub mod cyphers;
+pub mod utils;
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![caesar])
-        .invoke_handler(tauri::generate_handler![print_caesar])
+        .invoke_handler(tauri::generate_handler![
+            caesar, print_caesar,
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

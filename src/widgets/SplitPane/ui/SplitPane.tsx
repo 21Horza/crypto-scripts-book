@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { memo, useState } from 'react';
 import cls from './SplitPane.module.scss';
 import SplitPaneReact, { Pane, SashContent } from 'split-pane-react';
@@ -13,8 +14,6 @@ export const SplitPane = memo(() => {
 
   console.log(caesarCode)
 
-  // eslint-disable-next-line no-useless-escape, max-len
-  const codeMock = 'pub async fn ceasar(msg: &str, shift: u8) -> String \{\nmsg.chars(\)\n.map(|c| {\nif c.is_ascii_alphabetic() {\nlet first = if c.is_ascii_lowercase() { b\'a\' } else { b\'A\' };'
   async function printCeasar () {
     setCaesarCode(await invoke('print_caesar'));
   }

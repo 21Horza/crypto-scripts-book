@@ -1,24 +1,9 @@
-#![allow(dead_code)]
-
 use macro_rules_attribute::apply;
+use crate::utils::macros::func;
 
-macro_rules! func {
-    ($(#[$attr:meta])* $vis:vis fn $name:ident $($tt:tt)+) => {
-        $(#[$attr])* $vis fn $name $($tt)+
-
-        ::paste::paste! {
-            pub fn [< $name _source >]() -> String {
-                let syntax_tree = ::syn::parse_file(stringify!(fn $name $($tt)+)).unwrap();
-                ::prettyplease::unparse(&syntax_tree)
-            }
-        }
-    }
-}
-
-#[tokio::main]
 #[tauri::command]
 #[apply(func)]
-pub async fn caesar(msg: &str, shift: u8) -> String {
+pub fn caesar(msg: &str, shift: u8) -> String {
     msg.chars()
         .map(|c| {
             if c.is_ascii_alphabetic() {
@@ -31,9 +16,10 @@ pub async fn caesar(msg: &str, shift: u8) -> String {
         .collect::<String>()
 }
 
+#[tokio::main]
 #[tauri::command]
-pub fn print_caesar() {
-    println!("{}", caesar_source());
+pub async fn print_caesar() -> String {
+    return caesar_source().to_string();
 }
 
 #[cfg(test)]
