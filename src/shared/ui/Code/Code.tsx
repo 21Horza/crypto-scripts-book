@@ -1,23 +1,23 @@
 import { memo } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import cls from './Code.module.scss';
-import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface CodeProps {
   className?: string;
-  text: string;
+  code: string;
 }
 
 export const Code = memo((props: CodeProps) => {
-  const { className, text } = props;
+  const { code } = props;
   return (
-    <SyntaxHighlighter customStyle={{
+    <SyntaxHighlighter
+    customStyle={{
       background: 'var(--bg-color)',
       overflowY: 'scroll',
       height: '100vh',
+      fontWeight: '400',
     }} language="rust" style={vscDarkPlus}>
-      {text}
+      {code}
     </SyntaxHighlighter>
   );
 });
