@@ -1,4 +1,4 @@
-import { type FunctionComponent, memo } from 'react';
+import { type FunctionComponent, memo, useContext } from 'react';
 import cls from './Navbar.module.scss';
 import SunIcon from '@/shared/assets/icons/sun.svg';
 import MoonIcon from '@/shared/assets/icons/moon.svg';
@@ -8,9 +8,15 @@ import { Icon } from '@/shared/ui/Icon';
 import { Theme } from '@/shared/consts/theme';
 import { Button } from '@/shared/ui/Button';
 import { CyphersListButton } from '@/features/cyphersListButton';
+import { CodeContext } from '@/shared/context/CodeContext';
 
 export const Navbar = memo(() => {
   const { theme, toggleTheme } = useTheme();
+  const { setPrintCode } = useContext(CodeContext);
+
+  const onClearHandler = () => {
+    setPrintCode?.('');
+  }
 
   return (
     <div className={classNames(cls.Navbar, {}, [])}>
@@ -28,9 +34,26 @@ export const Navbar = memo(() => {
             <CyphersListButton />
       </div>
           <div className={cls.btns}>
-            <Button className={cls.rightCornerBtn} variant='encrypt'>Encrypt</Button>
-            <Button className={cls.rightCornerBtn} variant='decrypt'>Decrypt</Button>
-            <Button className={cls.rightCornerBtn} color='error' variant='normal'>Clear</Button>
+            <Button
+            className={cls.rightCornerBtn}
+            variant='encrypt'
+            >
+              Encrypt
+            </Button>
+            <Button
+            className={cls.rightCornerBtn}
+            variant='decrypt'
+            >
+              Decrypt
+            </Button>
+            <Button
+            onClick={onClearHandler}
+            className={cls.rightCornerBtn}
+            color='error'
+            variant='normal'
+            >
+              Clear
+            </Button>
           </div>
         </div>
   );

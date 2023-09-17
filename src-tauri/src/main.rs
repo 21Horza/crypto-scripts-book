@@ -9,7 +9,7 @@ pub mod utils;
 fn main() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
-            caesar, print_caesar,
+            encrypt_caesar, print_caesar,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

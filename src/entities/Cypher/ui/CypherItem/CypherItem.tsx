@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './CypherItem.module.scss';
 import { type Cypher } from '../../model/types/cypher';
+import { usePrintCode } from '@/shared/lib/hooks/usePrintCode/usePrintCode';
 
 interface CypherItemProps {
   className?: string;
@@ -13,8 +14,22 @@ export const CypherItem = memo((props: CypherItemProps) => {
     className,
     item,
   } = props;
+
+  const { togglePrintCode } = usePrintCode(item.encryptFn);
+
+  const handleClick = async () => {
+    try {
+      await togglePrintCode();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-        <div className={classNames(cls.CypherItem, {}, [className])}>
+        <div
+        onClick={handleClick}
+        className={classNames(cls.CypherItem, {}, [className])}
+        >
             {item.title}
         </div>
   );

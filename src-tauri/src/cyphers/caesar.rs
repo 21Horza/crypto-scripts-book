@@ -3,7 +3,7 @@ use crate::utils::macros::func;
 
 #[tauri::command]
 #[apply(func)]
-pub fn caesar(msg: &str, shift: u8) -> String {
+pub fn encrypt_caesar(msg: &str, shift: u8) -> String {
     msg.chars()
         .map(|c| {
             if c.is_ascii_alphabetic() {
@@ -19,7 +19,7 @@ pub fn caesar(msg: &str, shift: u8) -> String {
 #[tokio::main]
 #[tauri::command]
 pub async fn print_caesar() -> String {
-    return caesar_source().to_string();
+    return encrypt_caesar_source().to_string();
 }
 
 #[cfg(test)]
@@ -28,6 +28,6 @@ mod tests {
 
     #[test]
     fn caesar_rot_13() {
-        assert_eq!(caesar("hello world", 3), "khoor zruog");
+        assert_eq!(encrypt_caesar("hello world", 3), "khoor zruog");
     }
 }

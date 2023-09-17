@@ -4,11 +4,16 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface CodeProps {
   className?: string;
-  code: string;
+  code?: string;
 }
 
 export const Code = memo((props: CodeProps) => {
   const { code } = props;
+
+  if (!code) {
+    return;
+  }
+
   return (
     <SyntaxHighlighter
     customStyle={{

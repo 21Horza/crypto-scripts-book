@@ -1,20 +1,16 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
-import { memo, useState } from 'react';
+import { memo, useContext, useState } from 'react';
 import cls from './SplitPane.module.scss';
 import SplitPaneReact, { Pane, SashContent } from 'split-pane-react';
 import 'split-pane-react/esm/themes/default.css';
 import { Code } from '@/shared/ui/Code';
 import { Textarea } from '@/shared/ui/Textarea';
-import { invoke } from '@tauri-apps/api/tauri';
+import { CodeContext } from '@/shared/context/CodeContext';
 
 export const SplitPane = memo(() => {
   const [sizes, setSizes] = useState([100, '8%', 'auto']);
   const [sizes2, setSizes2] = useState([100, '10%', 'auto']);
-  const [caesarCode, setCaesarCode] = useState('');
+  const { printCode } = useContext(CodeContext);
 
-  async function printCeasar () {
-    setCaesarCode(await invoke('print_caesar'));
-  }
   const [text,] = useState('');
   return (
         <div className={cls.SplitPane}>
@@ -27,10 +23,7 @@ export const SplitPane = memo(() => {
                 )}
                 >
                 <Pane className={cls.codePane} minSize={5} maxSize='90%'>
-                  <button onClick={printCeasar}>
-                    PRINT
-                  </button>
-                    <Code className={cls.code} text={caesarCode} />
+                    <Code className={cls.code} code={printCode} />
                 </Pane>
                 <SplitPaneReact
                 sashRender={() => (
