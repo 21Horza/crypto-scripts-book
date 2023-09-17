@@ -81,7 +81,6 @@ export const Input = memo((props: InputProps) => {
           cls[size],
         ])}
       >
-          <div className={cls.addonLeft}>{addonLeft}</div>
           <input
           ref={ref}
           type={type}
@@ -95,7 +94,6 @@ export const Input = memo((props: InputProps) => {
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...otherProps}
         />
-          <div className={cls.addonRight}>{addonRight}</div>
       </div>
   );
 

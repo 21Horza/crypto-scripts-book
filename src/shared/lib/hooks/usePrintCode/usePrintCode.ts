@@ -1,3 +1,4 @@
+import { type CodeMode } from '@/shared/consts/codeMode';
 import { CodeContext } from '@/shared/context/CodeContext';
 import { invoke } from '@tauri-apps/api';
 import { useContext } from 'react';
@@ -5,15 +6,24 @@ import { useContext } from 'react';
 interface UsePrintCodeResult {
   togglePrintCode: () => Promise<void>;
   printCode?: string;
+  functionResult?: string;
 }
 
-export function usePrintCode (functionName: string): UsePrintCodeResult {
-  const { printCode, setPrintCode } = useContext(CodeContext);
+export function usePrintCode (functionName: string, mode: CodeMode): UsePrintCodeResult {
+  const { printCode, setPrintCode, setFunctionResult, functionResult } = useContext(CodeContext);
 
   const togglePrintCode = async () => {
     try {
-      const newPrintCode = await invoke<string>(functionName);
-      setPrintCode?.(newPrintCode);
+      if (mode === 'P') {
+        const newPrintCode = await invoke<string>(functionName);
+        setPrintCode?.(newPrintCode);
+      }
+      if (mode === 'E' || mode === 'D') {
+        const result = await invoke<string>(functionName);
+        setFunctionResult?.(result);
+      } else {
+        throw new Error('Missing the correct mode')
+      }
     } catch (e) {
       console.log(e)
     }
@@ -21,6 +31,7 @@ export function usePrintCode (functionName: string): UsePrintCodeResult {
 
   return {
     printCode,
+    functionResult,
     togglePrintCode
   };
 }

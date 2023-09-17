@@ -4,6 +4,7 @@
     width: 300px;
     overflow: scroll;
     overflow-x: hidden;
+    cursor: pointer;
 
     &::-webkit-scrollbar {
         width: 0;  
@@ -13,6 +14,7 @@
 
 .cyphers {
     font-weight: 700;
+    cursor: pointer;
     margin-left: 1rem;
     border-radius: 50px;
     background: var(--cyphers-btn-color);

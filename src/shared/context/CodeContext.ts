@@ -1,8 +1,14 @@
 import { createContext } from 'react';
 
-export interface PrintCodeContextProps {
+export interface CodeContextProps {
   printCode?: string;
   setPrintCode?: (printCode: string) => void;
+  functionResult?: string;
+  setFunctionResult?: (printCode: string) => void;
+  currentEncrypt?: string;
+  setCurrentEncrypt?: (printCode: string) => void;
+  currentDecrypt?: string;
+  setCurrentDecrypt?: (printCode: string) => void;
 }
 
-export const CodeContext = createContext<PrintCodeContextProps>({});
+export const CodeContext = createContext<CodeContextProps>({});

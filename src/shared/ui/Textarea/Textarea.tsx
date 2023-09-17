@@ -1,28 +1,36 @@
-import { memo, useState } from 'react';
+import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Textarea.module.scss';
 
 interface TextareaProps {
   className?: string;
-  text?: string;
+  value?: string;
   readonly?: boolean;
   placeholder?: string;
+  setText?: (str: string) => void;
 }
 
 export const Textarea = memo((props: TextareaProps) => {
   const {
     className,
+    value,
     readonly = false,
     placeholder,
+    setText = () => {},
   } = props;
-  const [txt, setTxt] = useState('');
+
+  const onChangeHandler = (value: string) => {
+    setText(value);
+    console.log('TXT', value)
+  }
+
   return (
         <textarea
         readOnly={readonly}
         placeholder={placeholder}
-        defaultValue={txt}
+        value={value}
+        onChange={(e) => { onChangeHandler(e.currentTarget.value); } }
          className={classNames(cls.Textarea, {}, [className])}
-        onChange={(e) => { setTxt(e.target.value); }}
          />
   );
 });

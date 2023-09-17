@@ -23,3 +23,23 @@
 	align-items: center;
 	justify-content: center;
 }
+
+.form {
+	height: 100%;
+}
+
+.btns {
+	height: var(--navbar-height);
+	position: fixed;
+	top: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	margin-right: 20px;
+}
+
+.keyInput {
+	padding: 10px;
+	border-bottom: 1px solid #969696;
+}
