@@ -41,6 +41,7 @@ export const Navbar = memo(() => {
               Encrypt
             </Button>
             <Button
+            disabled
             className={cls.rightCornerBtn}
             variant='decrypt'
             >

@@ -13,6 +13,14 @@
     }
 }
 
+.disabled {
+    opacity: 0.1;
+
+    &:hover {
+        opacity: 0.1;
+    }
+}
+
 .error {
     background: var(--red-btn-color);
 }
