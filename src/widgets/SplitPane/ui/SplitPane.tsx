@@ -67,51 +67,51 @@ export const SplitPane = memo(() => {
                 sizes={sizes2}
                 onChange={setSizes2}
                 >
-                <Pane minSize={100} maxSize='80%'>
-                  <div className={cls.btns}>
-                    <Button
-                    variant='encrypt'
-                    onClick={onEncryptHandler}
-                    >
-                      Encrypt
-                    </Button>
-                    <Button
-                    onClick={onDecryptHandler}
-                    disabled={!!(!currentDecrypt || currentDecrypt === '')}
-                    variant='decrypt'
-                    >
-                      Decrypt
-                    </Button>
-                    <Button
-                    onClick={onClearHandler}
-                    color='error'
-                    variant='normal'
-                    >
-                      Clear
-                    </Button>
-                  </div>
-                  <form className={cls.form}>
-                    <Input
-                    className={cls.keyInput}
-                    onChange={setKey}
-                    placeholder='// Key'
-                    value={key}
-                    />
+                  <Pane minSize={100} maxSize='80%'>
+                      <div className={cls.btns}>
+                        <Button
+                        variant='encrypt'
+                        onClick={onEncryptHandler}
+                        >
+                          Encrypt
+                        </Button>
+                        <Button
+                        onClick={onDecryptHandler}
+                        disabled={!!(!currentDecrypt || currentDecrypt === '')}
+                        variant='decrypt'
+                        >
+                          Decrypt
+                        </Button>
+                        <Button
+                        onClick={onClearHandler}
+                        color='error'
+                        variant='normal'
+                        >
+                          Clear
+                        </Button>
+                      </div>
+                      <form className={cls.form}>
+                        <Input
+                        className={cls.keyInput}
+                        onChange={setKey}
+                        placeholder='// Key'
+                        value={key}
+                        />
+                        <Textarea
+                        setText={setMessage}
+                        placeholder={'// Message'}
+                        value={message}
+                        />
+                      </form>
+                  </Pane>
+                  <Pane className={cls.result} minSize={10}>
                     <Textarea
-                    setText={setMessage}
-                    placeholder={'// Message'}
-                    value={message}
-                    />
-                  </form>
-                </Pane>
-                <Pane className={cls.result} minSize={10}>
-                <Textarea
-                    setText={setMessage}
-                    placeholder={'// Result'}
-                    readonly
-                    value={result}
-                    />
-                </Pane>
+                        setText={setMessage}
+                        placeholder={'// Result'}
+                        readonly
+                        value={result}
+                        />
+                  </Pane>
                 </SplitPaneReact>
             </SplitPaneReact>
         </div>

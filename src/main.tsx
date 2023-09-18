@@ -8,11 +8,11 @@ import { MessageResultProvider } from './app/providers/MessageResultProvider';
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <MessageResultProvider>
-    <CodeProvider>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    </CodeProvider>
+      <CodeProvider>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </CodeProvider>
     </MessageResultProvider>
   </React.StrictMode>,
 );

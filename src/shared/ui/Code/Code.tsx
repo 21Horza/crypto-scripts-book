@@ -1,6 +1,7 @@
+import { useTheme } from '@/shared/lib/hooks';
 import { memo } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { gruvboxDark, gruvboxLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface CodeProps {
   className?: string;
@@ -9,6 +10,7 @@ interface CodeProps {
 
 export const Code = memo((props: CodeProps) => {
   const { code } = props;
+  const { theme } = useTheme();
 
   if (!code) {
     return;
@@ -20,8 +22,16 @@ export const Code = memo((props: CodeProps) => {
       background: 'var(--bg-color)',
       overflowY: 'scroll',
       height: '100vh',
-      fontWeight: '400',
-    }} language="rust" style={vscDarkPlus}>
+    }}
+    language="rust"
+    showLineNumbers
+    showInlineLineNumbers
+    style={
+      theme === 'app_dark_theme'
+        ? gruvboxDark
+        : gruvboxLight
+    }
+    >
       {code}
     </SyntaxHighlighter>
   );

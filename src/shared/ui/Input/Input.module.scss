@@ -22,10 +22,6 @@
     width: 100%;
     color: var(--text-color);
     background: none;
-
-    &::placeholder {
-        color: #969696;
-    }
 }
 
 .readonly {
