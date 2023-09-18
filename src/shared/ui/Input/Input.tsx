@@ -39,8 +39,6 @@ export const Input = memo((props: InputProps) => {
     placeholder,
     autofocus,
     readonly,
-    addonLeft,
-    addonRight,
     label,
     size = 'm',
     ...otherProps
@@ -70,8 +68,6 @@ export const Input = memo((props: InputProps) => {
   const mods: Mods = {
     [cls.readonly]: readonly,
     [cls.focused]: isFocused,
-    [cls.withAddonLeft]: Boolean(addonLeft),
-    [cls.withAddonRight]: Boolean(addonRight),
   };
 
   const input = (

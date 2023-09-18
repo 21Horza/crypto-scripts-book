@@ -7,11 +7,13 @@ import { Textarea } from '@/shared/ui/Textarea';
 import { CodeContext } from '@/shared/context/CodeContext';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
+import { invoke } from '@tauri-apps/api/tauri';
 
 export const SplitPane = memo(() => {
   const [sizes, setSizes] = useState([100, '8%', 'auto']);
   const [sizes2, setSizes2] = useState([100, '10%', 'auto']);
   const { printCode } = useContext(CodeContext);
+  const { currentEncrypt, currentDecrypt } = useContext(CodeContext);
   const [message, setMessage] = useState('');
   const [result, setResult] = useState('');
   const [key, setKey] = useState<string | number>();
@@ -20,6 +22,28 @@ export const SplitPane = memo(() => {
     setResult('');
     setMessage('');
     setKey('');
+  }
+
+  const onEncryptHandler = async () => {
+    try {
+      const result = await invoke<string>(currentEncrypt, { msg: message, shift: Number(key) });
+      setResult(result);
+      console.log(result);
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  const onDecryptHandler = async () => {
+    if (!currentDecrypt || currentDecrypt === '') {
+      return
+    }
+    try {
+      const result = await invoke<string>(currentDecrypt, { msg: message, shift: Number(key) });
+      setResult(result);
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   return (
@@ -47,11 +71,13 @@ export const SplitPane = memo(() => {
                   <div className={cls.btns}>
                     <Button
                     variant='encrypt'
+                    onClick={onEncryptHandler}
                     >
                       Encrypt
                     </Button>
                     <Button
-                    disabled
+                    onClick={onDecryptHandler}
+                    disabled={!!(!currentDecrypt || currentDecrypt === '')}
                     variant='decrypt'
                     >
                       Decrypt

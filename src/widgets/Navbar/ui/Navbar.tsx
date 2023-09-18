@@ -1,4 +1,4 @@
-import { type FunctionComponent, memo } from 'react';
+import { type FunctionComponent, memo, useContext } from 'react';
 import cls from './Navbar.module.scss';
 import SunIcon from '@/shared/assets/icons/sun.svg';
 import MoonIcon from '@/shared/assets/icons/moon.svg';
@@ -7,9 +7,12 @@ import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Icon } from '@/shared/ui/Icon';
 import { Theme } from '@/shared/consts/theme';
 import { CyphersListButton } from '@/features/cyphersListButton';
+import { CodeContext } from '@/shared/context/CodeContext';
+import { Text } from '@/shared/ui/Text';
 
 export const Navbar = memo(() => {
   const { theme, toggleTheme } = useTheme();
+  const { currentTitle } = useContext(CodeContext);
 
   return (
     <div className={classNames(cls.Navbar, {}, [])}>
@@ -25,6 +28,10 @@ export const Navbar = memo(() => {
                 onClick={toggleTheme}
               />
               <CyphersListButton />
+              <div className={cls.activeCypher}>
+                  <Text size='l' className={cls.text} text={'Current cypher:'} />
+                  {currentTitle}
+              </div>
         </div>
     </div>
   );

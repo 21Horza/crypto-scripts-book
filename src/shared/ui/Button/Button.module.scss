@@ -39,6 +39,8 @@
 }
 
 .decrypt {
+    pointer-events: none;
+    text-decoration: line-through;
     background: var(--decrypt-btn-color);
 }
 

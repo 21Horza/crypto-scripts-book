@@ -23,7 +23,6 @@ export const CyphersListButton = memo((props: CyphersListButtonProps) => {
   const trigger = (
     <Button
              onClick={onOpenDrawer}
-             addonRight
              className={cls.cyphers}
              >Cyphers
     </Button>

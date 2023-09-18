@@ -21,7 +21,10 @@ export const CypherList = memo((props: CypherListProps) => {
       className={classNames('', {}, [className])}
     >
       {data?.map((item) => (
-        <CypherItem key={item.id} item={item}/>
+        <CypherItem
+        key={item.id}
+         item={item}
+        />
       ))}
     </VStack>
   );

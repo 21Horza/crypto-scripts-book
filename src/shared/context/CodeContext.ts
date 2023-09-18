@@ -5,10 +5,16 @@ export interface CodeContextProps {
   setPrintCode?: (printCode: string) => void;
   functionResult?: string;
   setFunctionResult?: (printCode: string) => void;
-  currentEncrypt?: string;
+  currentEncrypt: string;
   setCurrentEncrypt?: (printCode: string) => void;
-  currentDecrypt?: string;
+  currentDecrypt: string;
   setCurrentDecrypt?: (printCode: string) => void;
+  currentTitle: string;
+  setCurrentTitle?: (printCode: string) => void;
 }
 
-export const CodeContext = createContext<CodeContextProps>({});
+export const CodeContext = createContext<CodeContextProps>({
+  currentEncrypt: '',
+  currentDecrypt: '',
+  currentTitle: ''
+});

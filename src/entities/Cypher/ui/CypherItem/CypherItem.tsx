@@ -17,12 +17,12 @@ export const CypherItem = memo((props: CypherItemProps) => {
     item,
   } = props;
   const { togglePrintCode } = usePrintCode(item.printFn, CodeMode.PRINT);
-  const { toggleCurrentCode } = useCurrentCode(item.encryptFn, CodeMode.ENCRYPT);
+  const { toggleCurrentCode, currentEncrypt } = useCurrentCode(item.encryptFn, item.decryptFn ?? '', item.title);
 
   const handleClick = async () => {
     try {
       await togglePrintCode();
-      await toggleCurrentCode();
+      toggleCurrentCode();
     } catch (error) {
       console.error(error);
     }
@@ -31,7 +31,14 @@ export const CypherItem = memo((props: CypherItemProps) => {
   return (
         <div
         onClick={handleClick}
-        className={classNames(cls.CypherItem, {}, [className])}
+        className={classNames(cls.CypherItem,
+          {
+            [cls.selected]:
+            item.encryptFn ===
+            currentEncrypt &&
+            currentEncrypt !== ''
+          }
+          , [className])}
         >
             {item.title}
         </div>
